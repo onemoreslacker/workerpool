@@ -11,13 +11,13 @@
 ### Создание пула воркеров
 
 ```go
-pool := workerpool.New()
+wp := workerpool.New()
 ```
 
 ### Добавление воркеров
 
 ```go
-if err := pool.AddWorker(); err != nil {
+if err := wp.AddWorker(); err != nil {
     // Обработка ошибки, например, пул закрыт
 }
 ```
@@ -25,7 +25,7 @@ if err := pool.AddWorker(); err != nil {
 ### Удаление воркеров
 
 ```go
-if err := pool.RemoveWorker(); err != nil {
+if err := wp.RemoveWorker(); err != nil {
     // Обработка ошибки, например, нет воркеров для удаления
 }
 ```
@@ -33,7 +33,7 @@ if err := pool.RemoveWorker(); err != nil {
 ### Отправка задач
 
 ```go
-if err := pool.Submit("задача"); rr != nil {
+if err := wp.Submit("задача"); err != nil {
     // Обработка ошибки, например, пул закрыт
 }
 ```
@@ -41,8 +41,7 @@ if err := pool.Submit("задача"); rr != nil {
 ### Проверка количества запущенных воркеров
 
 ```go
-runningWorkers := pool.Running()
-fmt.Printf("количество запущенных воркеров: %d\n", runningWorkers)
+fmt.Printf("количество запущенных воркеров: %d\n", wp.Running())
 ```
 
 ### Закрытие пула воркеров
@@ -50,13 +49,13 @@ fmt.Printf("количество запущенных воркеров: %d\n", r
 После завершения работы с пулом он должен быть закрыт для освобождения ресурсов:
 
 ```go
-pool.Close()
+wp.Close()
 ```
 
 ### Проверка статуса пула
 
 ```go
-isClosed := pool.IsClosed()
+isClosed := wp.IsClosed()
 if isClosed {
     fmt.Println("пул воркеров закрыт.")
 } else {
