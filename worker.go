@@ -30,7 +30,7 @@ func (w *worker) start(wg *sync.WaitGroup) {
 			if !ok {
 				return
 			}
-			fmt.Printf("worker %d is processing %s\nn", w.id, data)
+			fmt.Printf("worker %d is processing %s\n", w.id, data)
 		}
 	}
 }
