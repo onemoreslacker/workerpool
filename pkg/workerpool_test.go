@@ -4,7 +4,7 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/onemoreslacker/workerpool"
+	workerpool "github.com/onemoreslacker/workerpool/pkg"
 	"github.com/stretchr/testify/require"
 )
 
